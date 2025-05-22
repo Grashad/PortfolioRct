@@ -1,38 +1,345 @@
-.App {
-  text-align: center;
+/* Root Variables */
+:root {
+    --border-bottom: rgb(25, 25, 145);
+    --background-color: rgb(221, 37, 37);
+    --primary-color: rgb(13, 30, 56);
+    --secondary-color: rgb(138, 26, 26);
+    --tertiary-color: rgb(29, 29, 146);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Global Styles */
+html, body {
+    height: 100vh;
+    width: 100%;
+    overflow-y: scroll;
+    margin: 0;
+}
+html {
+    font-size: 62.5%;
+    font-family: "Montserrat", sans-serif;
+    box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+
+
+/* ========================================================================
+   Header Section (corresponds to <header> in HTML)
+   ======================================================================== */
+#navbar {
+    display: flex;
+    background-color: var(--background-color);
+    height: 5rem;
+    width: 100%;
+    padding-top: 0.5rem;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+#navbar ul {
+    display: inline-flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-content: center;
+    padding-left: 0px;
+    padding-right: 4rem;
+    margin: 0px;
+    width: 100%;
+    gap: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+#navbar ul li {
+    align-content: center;
+    padding-right: 2rem;
+    list-style-type: none;
+    font-size: 2rem;
+    font-weight: bold;   
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* Animation Keyframes for list */
+@-webkit-keyframes list {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-20%);
+    }
+}
+@-moz-keyframes list {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-20%);
+    }
+}
+@keyframes list {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-20%);
+    }
+}
+
+#navbar li:hover {
+    -webkit-animation: list 0.2s ease-in-out forwards;
+    -moz-animation: list 0.2s ease-in-out forwards;
+    animation: list 0.2s ease-in-out forwards;
+}
+
+#navbar li:active {
+    color: black;
+}
+
+#navbar ul li:last-child {
+    padding: 0px;
+}
+
+/* ========================================================================
+   Main Section (corresponds to <main> and child <section>s)
+   ======================================================================== */
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    min-height: 100%;
+    padding: 0;
+    margin: 0;
+    background: linear-gradient(
+        to bottom,
+        var(--background-color) 0%,
+        var(--secondary-color) 5%,
+        rgba(11, 11, 122, 1) 15%,
+        rgba(11, 11, 122, 1) 85%,
+        var(--secondary-color) 95%,
+        var(--background-color) 100%
+    );
+    flex-grow: 1;               
+}
+
+
+/* ------------------------------------------------------------------------
+   Welcome Section (Landing)
+   ------------------------------------------------------------------------ */
+#welcome-section {
+    display: flex;
+    flex-direction: column;
+    height: 30rem;
+    width: 100%;
+    margin-bottom: 2rem;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+}
+
+#welcome-section h1 {
+    font-size: 3rem;
+    display: inherit;
+    margin: 0px;
+    font-weight: bolder;
+    color: white;
+    max-width: 40rem;
+}
+
+#welcome-section h2 {
+    font-size: 2.6rem;
+    display: inherit;
+    margin: 0px;
+    font-weight: bold;
+    color: white;
+    padding-top: 10px;
+}
+
+.web-dev {
+    display: inline-flex;
+    justify-content: center;
+    margin: 0px;
+    color: var(--secondary-color);
+    font-size: 2.2rem;
+    padding-top: 10px;
+}
+
+.font {
+    font-size: 1.8rem;
+}
+
+/* ------------------------------------------------------------------------
+   Project Section
+   ------------------------------------------------------------------------ */
+#project-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(30rem, max-content));
+    width: 100%;
+    height: 100%;
+    gap: 2rem;
+    justify-content: center;
+    flex-grow: 1;
+}
+
+.alink {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--tertiary-color);
+    width: 100%;
+    height: 30rem;
+    border: solid 2px var(--border-bottom);
+    border-radius: 2px;
+}
+
+img {
+    display: flex;
+    height: 25rem;
+    width: 30rem;
+}
+
+.project-wrap h2 {
+    display: flex;
+    margin: 0px;
+    color: #fff;
+    font-size: 1.6rem;
+}
+
+/* ------------------------------------------------------------------------
+   Link Styles (for anchor elements across sections)
+   ------------------------------------------------------------------------ */
+a:link ,
+a:visited  {
+    color: white;
+    text-decoration: none;
+}
+
+/* Animation Keyframes for active */
+@-webkit-keyframes active {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@-moz-keyframes active {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes active {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.alink:hover > .project-tile::before,
+.alink:hover > .project-tile::after {
+    color: var(--background-color);
+    align-items: center;
+    -webkit-animation: active 0.7s ease-in-out;
+    -moz-animation: active 0.7s ease-in-out;
+    animation: active 0.7s ease-in-out;
+}
+
+.alink:hover > .project-tile::before {
+    content: ">> ";
+}
+
+.alink:hover > .project-tile::after {
+    content: " <<";
+}
+
+.alink:active > .project-tile {
+    color: var(--background-color);
+    -webkit-animation: active 0.5s ease-in-out;
+    -moz-animation: active 0.5s ease-in-out;
+    animation: active 0.5s ease-in-out;
+}
+
+/* ------------------------------------------------------------------------
+   End Section (Contact area)
+   ------------------------------------------------------------------------ */
+#end-section {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+    height: 30rem;
+    width: 100%;
+    text-align: center;
+}
+
+.end-text {
+    font-size: 2rem;
+    color: white;
+    max-width: 75vw;
+}
+
+#profile-link {
+    font-size: 4rem;
+}
+
+/* Animation Keyframes for icon */
+@-webkit-keyframes icon {
+    from {
+        transform: translateY(0);
+        color: white;
+    }
+    to {
+        transform: translateY(-10%);
+        color: black;
+    }
+}
+@-moz-keyframes icon {
+    from {
+        transform: translateY(0);
+        color: white;
+    }
+    to {
+        transform: translateY(-10%);
+        color: black;
+    }
+}
+@keyframes icon {
+    from {
+        transform: translateY(0);
+        color: white;
+    }
+    to {
+        transform: translateY(-10%);
+        color: black;
+    }
+}
+
+#profile-link:hover {
+    -webkit-animation: icon 0.5s ease-in-out forwards;
+    -moz-animation: icon 0.5s ease-in-out forwards;
+    animation: icon 0.5s ease-in-out forwards;
+}
+
+/* ========================================================================
+   Footer Section (corresponds to <footer> in HTML)
+   ======================================================================== */
+#footer-1 {
+    display: flex;
+    background-color: var(--background-color);
+    border-top: 2px solid var(--background-color);
+    justify-content: flex-end;
+    padding-right: 2rem;
+    font-style: italic;
+    color: white;
+    font-size: 1.4rem;
+}
+
+/* ========================================================================
+   Responsive Styles
+   ======================================================================== */
+@media only screen and (max-width: 610px) {
+    #navbar ul {
+        display: flex;
+        justify-content: center;
+        padding-right: 0;
+    }
 }
