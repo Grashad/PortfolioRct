@@ -3,3 +3,5 @@
 >Conversion into a proper portfolio site using React 
 
 >>This should contain most of the content I should know about web-dev, and thanks to React modularity, I can take it piecemeal fashion, one button at a time
+>>
+>>>[One button is out of place due to CSS animation] 
